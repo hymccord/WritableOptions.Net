@@ -28,7 +28,7 @@ See also: [How to update values into appsetting.json?](https://stackoverflow.com
 
 ## Usage
 
-See [ConsoleApp Example](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/).
+See [ConsoleApp](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/), [.NET MAUI](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/MauiExample/) or [Xamarin](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/) example.
 
 ```csharp
 using Nogic.WritableOptions;
