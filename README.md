@@ -16,6 +16,16 @@ This is a fork of [Awesome.Net.WritableOptions](https://www.nuget.org/packages/A
 
 See also: [How to update values into appsetting.json?](https://stackoverflow.com/questions/40970944/how-to-update-values-into-appsetting-json)
 
+## Install
+
+```console
+// .NET CLI
+> dotnet add package Nogic.WritableOptions
+
+// NuGet Package Manager
+> Install-Package Nogic.WritableOptions
+```
+
 ## Usage
 
 See [ConsoleApp Example](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/).
