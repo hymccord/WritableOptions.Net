@@ -3,8 +3,10 @@ using Nogic.WritableOptions;
 
 namespace MauiExample;
 
+/// <summary>Bootstrap for .NET MAUI</summary>
 public static class MauiProgram
 {
+    /// <summary>Entry point</summary>
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();

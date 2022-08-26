@@ -2,15 +2,21 @@ using ConsoleAppExample;
 using Microsoft.Extensions.Logging;
 using Nogic.WritableOptions;
 
+// Setup ConsoleAppFramework
 var builder = ConsoleApp.CreateBuilder(args);
+
+// DI
 builder.ConfigureServices((ctx, services) =>
     services.ConfigureWritable<AppOption>(ctx.Configuration.GetSection(ctx.HostingEnvironment.ApplicationName)));
 
+// Create Logger
 var rootEventId = new EventId(0, $"{nameof(ConsoleAppExample)}.Root");
 var logInfomation = LoggerMessage.Define<string>(LogLevel.Information, rootEventId, "{Message}");
 var logDebug = LoggerMessage.Define<string>(LogLevel.Debug, rootEventId, "{Message}");
 
 var app = builder.Build();
+
+// Main
 app.AddRootCommand((ConsoleAppContext ctx, IWritableOptions<AppOption> writableOptions) =>
 {
     logDebug(ctx.Logger, "Start.", null);

@@ -30,23 +30,32 @@ See also: [How to update values into appsetting.json?](https://stackoverflow.com
 
 See [ConsoleApp](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/), [.NET MAUI](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/MauiExample/) or [Xamarin](https://github.com/nogic1008/WritableOptions.Net/tree/main/sandbox/ConsoleAppExample/) example.
 
+### Setup
+
 ```csharp
 using Nogic.WritableOptions;
 
-// ...
-// in IHostBuilder.ConfigureServices((context, services) => {...})
+// In (IServiceCollection services) context
 
 // Save & Load from appsettings.json
 services.ConfigureWritable<MyOptions>(context.Configration.GetSection("MySection"));
 // Or use custom JSON file
 services.ConfigureWritable<MyOptions>(context.Configration.GetSection("MySection"), "Resources/mysettings.json");
+
+// Save & Load from C:\foo\bar\appsettings.json
+services.ConfigureWritableWithExplicitPath<AppOption>(_configuration.GetSection("MySection"), "C:\\foo\\bar", "appsettings.json")
 ```
+
+### Use on App
 
 ```csharp
 public class AppBase
 {
     private readonly IWritableOptions<MyOptions> _writableOptions;
-    public AppBase(IWritableOptions<MyOptions> writableOptions) => _writableOptions = writableOptions;
+
+    // DI from .NET Generic Host
+    public AppBase(IWritableOptions<MyOptions> writableOptions)
+        => _writableOptions = writableOptions;
 
     public void Run()
     {
